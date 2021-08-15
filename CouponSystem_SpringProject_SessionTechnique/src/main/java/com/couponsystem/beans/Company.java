@@ -33,9 +33,7 @@ public class Company {
 	private String email;
 	@Column(nullable = true)
 	private String password;
-	//TODO
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-//	@OneToMany(mappedBy = "company", fetch = FetchType.LAZY , cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH,CascadeType.REMOVE})
 	private List<Coupon> coupons = new ArrayList<>();
 	
 }

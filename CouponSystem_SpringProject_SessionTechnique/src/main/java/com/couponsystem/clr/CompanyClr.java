@@ -63,9 +63,6 @@ public class CompanyClr implements CommandLineRunner {
 		LoginForm goodLoginForm = new LoginForm("comp1Email@comp.com", "1111", ClientType.COMPANY);
 		System.out.println(loginController.login(goodLoginForm));
 		String token = loginController.getToken();
-		
-//		TODO -> Logout
-//		ClrUtils.testSeparatedLine(" --------->>>>>>>> Going to test Company Logout:");
 
 //		------------------------------------------------------------------------------------------------------------
 

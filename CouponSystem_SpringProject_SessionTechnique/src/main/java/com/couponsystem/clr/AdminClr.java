@@ -62,10 +62,6 @@ public class AdminClr implements CommandLineRunner {
 		System.out.println(loginController.login(goodLoginForm));
 		String token = loginController.getToken();
 		
-		
-//		TODO -> Logout
-//		ClrUtils.testSeparatedLine(" --------->>>>>>>> Going to test Admin Logout:");
-
 //		------------------------------------------------------------------------------------------------------------
 		
 		ClrUtils.testSeparatedLine(" --------->>>>>>>> Going to test adminController.addCompany:");

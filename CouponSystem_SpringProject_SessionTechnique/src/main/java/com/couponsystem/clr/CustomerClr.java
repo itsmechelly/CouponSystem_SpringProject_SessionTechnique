@@ -65,9 +65,6 @@ public class CustomerClr implements CommandLineRunner {
 		System.out.println(loginController.login(goodLoginForm));
 		String token = loginController.getToken();
 
-//		TODO -> Logout
-//		ClrUtils.testSeparatedLine(" --------->>>>>>>> Going to test Customer Logout:");
-
 //		------------------------------------------------------------------------------------------------------------
 
 		ClrUtils.testSeparatedLine(" --------->>>>>>>> Going to test customerController.purchaseCoupon:");

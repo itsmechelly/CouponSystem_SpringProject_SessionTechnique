@@ -17,13 +17,13 @@ import com.couponsystem.utils.ClrUtils;
 @Order(3)
 public class CustomerClr implements CommandLineRunner {
 
-	
 	private final CustomerController customerController;
 	private final CustomerImpl customerImpl;
 	private final LoginController loginController;
 
 	@Autowired
-	public CustomerClr(LoginController loginController, CustomerController customerController, CustomerImpl customerImpl) {
+	public CustomerClr(LoginController loginController, CustomerController customerController,
+			CustomerImpl customerImpl) {
 		super();
 		this.loginController = loginController;
 		this.customerController = customerController;
@@ -57,7 +57,6 @@ public class CustomerClr implements CommandLineRunner {
 		System.out.println("Going to test login exception - *WRONG* *Password*:");
 		LoginForm badPasswordLoginForm = new LoginForm("cust1@cust.com", "1010", ClientType.CUSTOMER);
 		System.out.println(loginController.login(badPasswordLoginForm));
-
 
 		System.out.println();
 		System.out.println("Going to test GOOD customer login:");
@@ -114,5 +113,4 @@ public class CustomerClr implements CommandLineRunner {
 
 		System.out.println(customerController.getCustomerDetails(token));
 	}
-
 }

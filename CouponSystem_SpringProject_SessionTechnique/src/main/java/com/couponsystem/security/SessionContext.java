@@ -48,7 +48,7 @@ public class SessionContext {
 				}
 			}
 		};
-		
+
 		timer.schedule(task, 3000, TimeUnit.SECONDS.toMillis(removeExpiredSessionsPeriod));
 	}
 
@@ -82,9 +82,9 @@ public class SessionContext {
 			return null;
 		}
 	}
-	
+
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
+
 	public boolean isTokenExist(String token) throws NotFoundException {
 		Session session = sessions.get(token);
 		if (session != null) {
@@ -92,10 +92,9 @@ public class SessionContext {
 		}
 		throw new NotFoundException("token");
 	}
-	
+
 	public Object getClientService(String token, String attrKey) {
 		Session session = sessions.get(token);
 		return session.getAttribute(attrKey);
 	}
-
 }

@@ -27,7 +27,7 @@ import com.couponsystem.security.SessionContext;
 @CrossOrigin(origins = "http://localhost:3000", allowedHeaders = "*")
 //@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
 public class CustomerController {
-	
+
 	private SessionContext sessionContext;
 
 	@Autowired
@@ -44,7 +44,9 @@ public class CustomerController {
 
 		try {
 			sessionContext.isTokenExist(token);
-			return ResponseEntity.ok(((CustomerService) sessionContext.getClientService(token, ClientType.CUSTOMER.toString())).purchaseCoupon(coupon));
+			return ResponseEntity
+					.ok(((CustomerService) sessionContext.getClientService(token, ClientType.CUSTOMER.toString()))
+							.purchaseCoupon(coupon));
 		} catch (LogException e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
 		} catch (PurchaseCouponException e) {
@@ -59,7 +61,9 @@ public class CustomerController {
 
 		try {
 			sessionContext.isTokenExist(token);
-			return ResponseEntity.ok(((CustomerService) sessionContext.getClientService(token, ClientType.CUSTOMER.toString())).getAllCoupons());
+			return ResponseEntity
+					.ok(((CustomerService) sessionContext.getClientService(token, ClientType.CUSTOMER.toString()))
+							.getAllCoupons());
 		} catch (LogException e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
 		} catch (NotFoundException e) {
@@ -73,8 +77,9 @@ public class CustomerController {
 
 		try {
 			sessionContext.isTokenExist(token);
-			return ResponseEntity.ok(
-					((CustomerService) sessionContext.getClientService(token, ClientType.CUSTOMER.toString())).getAllCouponsByCategory(couponCategory));
+			return ResponseEntity
+					.ok(((CustomerService) sessionContext.getClientService(token, ClientType.CUSTOMER.toString()))
+							.getAllCouponsByCategory(couponCategory));
 		} catch (LogException e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
 		} catch (NotFoundException e) {
@@ -89,25 +94,27 @@ public class CustomerController {
 		try {
 			sessionContext.isTokenExist(token);
 			return ResponseEntity
-					.ok(((CustomerService) sessionContext.getClientService(token, ClientType.CUSTOMER.toString())).getAllCouponsUnderMaxPrice(maxPrice));
+					.ok(((CustomerService) sessionContext.getClientService(token, ClientType.CUSTOMER.toString()))
+							.getAllCouponsUnderMaxPrice(maxPrice));
 		} catch (LogException e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
 		} catch (NotFoundException e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
 		}
 	}
-	
+
 	@GetMapping("/getCustomerDetails")
 	public ResponseEntity<?> getCustomerDetails(@RequestHeader(name = "CouponSystem_Header") String token) {
 
 		try {
 			sessionContext.isTokenExist(token);
-			return ResponseEntity.ok(((CustomerService) sessionContext.getClientService(token, ClientType.CUSTOMER.toString())).getCustomerDetails());
+			return ResponseEntity
+					.ok(((CustomerService) sessionContext.getClientService(token, ClientType.CUSTOMER.toString()))
+							.getCustomerDetails());
 		} catch (LogException e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
 		} catch (NotFoundException e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
 		}
 	}
-
 }

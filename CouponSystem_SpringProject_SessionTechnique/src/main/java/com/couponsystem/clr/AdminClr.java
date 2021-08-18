@@ -42,7 +42,7 @@ public class AdminClr implements CommandLineRunner {
 //	   \_| |_/\__,_|_| |_| |_|_|_| |_| \_| \_\___||___/\__|   \_/\___||___/\__|___/
 
 		ClrUtils.adminRestTests();
-		
+
 //		------------------------------------------------------------------------------------------------------------
 
 		ClrUtils.testSeparatedLine(" --------->>>>>>>> Testing Admin Login:");
@@ -50,20 +50,20 @@ public class AdminClr implements CommandLineRunner {
 		System.out.println("Going to test login exception - *WRONG* *Email*:");
 		LoginForm badEmailLoginForm = new LoginForm("BADadmin@BADadmin.com", "admin", ClientType.ADMIN);
 		System.out.println(loginController.login(badEmailLoginForm));
-		
+
 		System.out.println();
 		System.out.println("Going to test login exception - *WRONG* *Password*:");
 		LoginForm badPasswordLoginForm = new LoginForm("admin@admin.com", "nimda", ClientType.ADMIN);
 		System.out.println(loginController.login(badPasswordLoginForm));
-		
+
 		System.out.println();
 		System.out.println("Going to test GOOD admin login:");
 		LoginForm goodLoginForm = new LoginForm("admin@admin.com", "admin", ClientType.ADMIN);
 		System.out.println(loginController.login(goodLoginForm));
 		String token = loginController.getToken();
-		
+
 //		------------------------------------------------------------------------------------------------------------
-		
+
 		ClrUtils.testSeparatedLine(" --------->>>>>>>> Going to test adminController.addCompany:");
 
 		Company comp1 = new Company();
@@ -95,7 +95,7 @@ public class AdminClr implements CommandLineRunner {
 		System.out.println(adminController.addCompany(comp2, token));
 		System.out.println(adminController.addCompany(comp3, token));
 		System.out.println(adminController.addCompany(comp4, token));
-		System.out.println(adminController.addCompany(comp5, token));			
+		System.out.println(adminController.addCompany(comp5, token));
 
 		ClrUtils.testSeparatedLine(
 				" --------->>>>>>>> Going to test adminController.addCompany *BAD REQUEST* (cannot add if companyEmail already exist):");
@@ -226,5 +226,4 @@ public class AdminClr implements CommandLineRunner {
 
 		System.out.println(adminController.getAllCustomers(token));
 	}
-
 }

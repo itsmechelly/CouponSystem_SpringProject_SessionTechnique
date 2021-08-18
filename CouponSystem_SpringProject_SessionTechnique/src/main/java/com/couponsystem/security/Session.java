@@ -22,7 +22,7 @@ public class Session {
 	@Value("${session.max.inactive.interval:2000}") // injection happens after CTOR
 	private long maxInactiveInterval; // in milliseconds - needed for managing session expiration
 	private static final int TOKEN_MAX_LENGTH = 15;
-	
+
 	// Initialiser (runs before CTOR) - first step after object creation
 	{
 		this.token = UUID.randomUUID().toString().replace("-", "").substring(0, TOKEN_MAX_LENGTH);
@@ -57,13 +57,4 @@ public class Session {
 	public long getMaxInactiveInterval() {
 		return maxInactiveInterval;
 	}
-
-	/**
-	 * @param maxInactiveInterval given in mills
-	 */
-	//TODO - DELETE? DO YOU USE IT? IF SO, SET THE TIME WITH THE RELEVENT METHOD YOU HAVE ABOVE. (:
-	public void setMaxInactiveInterval(long maxInactiveInterval) {
-		this.maxInactiveInterval = maxInactiveInterval;
-	}
-
 }

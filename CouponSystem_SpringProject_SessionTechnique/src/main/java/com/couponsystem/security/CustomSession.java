@@ -13,5 +13,4 @@ public class CustomSession {
 
 	private ClientService clientService;
 	private Date timeStemp;
-
 }

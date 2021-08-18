@@ -18,7 +18,7 @@ import com.couponsystem.impl.AdminImpl;
 public class AdminService extends ClientService {
 
 	private AdminImpl adminImpl;
-	
+
 	@Autowired
 	public AdminService(AdminImpl adminImpl) {
 		super();
@@ -130,5 +130,4 @@ public class AdminService extends ClientService {
 
 		return adminImpl.findAllCustomers();
 	}
-
 }

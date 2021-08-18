@@ -16,10 +16,10 @@ import com.couponsystem.service.LoginService;
 @RestController
 public class LoginController {
 
-	//TODO - the token variable below is only for CLR testing, not for production!
+	// TODO - the token variable below is only for CLR testing, not for production!
 	public String token;
 	private final LoginService loginService;
-	
+
 	public LoginController(String token, LoginService loginService) {
 		super();
 		this.token = token;
@@ -30,27 +30,25 @@ public class LoginController {
 		return this.token;
 	}
 
-
 	@PostMapping("/login")
-	public ResponseEntity<?> login(@RequestBody LoginForm loginForm) {		
+	public ResponseEntity<?> login(@RequestBody LoginForm loginForm) {
 
 		HttpHeaders responseHeaders = new HttpHeaders();
 
 		try {
-			
+
 			this.token = loginService.login(loginForm);
-			
+
 			responseHeaders.set("CouponSystem_Header", this.token);
-			
+
 			LoginResponse loginResponse = new LoginResponse();
 			loginResponse.setToken(this.token);
 			loginResponse.setType(loginForm.getClientType());
-			
+
 			return ResponseEntity.ok().headers(responseHeaders).body(loginResponse);
 
 		} catch (LogException e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
 		}
 	}
-
 }

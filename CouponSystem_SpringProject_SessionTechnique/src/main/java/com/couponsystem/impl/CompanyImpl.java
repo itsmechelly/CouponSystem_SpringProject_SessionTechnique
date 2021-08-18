@@ -79,5 +79,4 @@ public class CompanyImpl {
 	public boolean couponExistsByTitleAndIdNot(String title, int id) {
 		return couponRepository.existsByTitleAndIdNot(title, id);
 	}
-
 }

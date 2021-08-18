@@ -35,5 +35,4 @@ public class Company {
 	private String password;
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
 	private List<Coupon> coupons = new ArrayList<>();
-	
 }

@@ -14,5 +14,4 @@ public class HashMapConfig {
 	public HashMap<String, CustomSession> tokensInMemory() {
 		return new HashMap<>();
 	}
-
 }

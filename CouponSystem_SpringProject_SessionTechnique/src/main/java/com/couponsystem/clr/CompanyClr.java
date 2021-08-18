@@ -30,7 +30,7 @@ public class CompanyClr implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		
+
 //    _  
 //  _( )_
 // (_ o _)
@@ -133,8 +133,8 @@ public class CompanyClr implements CommandLineRunner {
 		coup7.setCategory(CouponCategory.VACATION);
 		coup7.setTitle("coup7Title");
 		coup7.setDescription("coup7Description");
-		coup7.setStartDate(DateUtil.dateFormat(2019, 07, 28));
-		coup7.setEndDate(DateUtil.dateFormat(2019, 8, 28));
+		coup7.setStartDate(DateUtil.dateFormat(2029, 07, 28));
+		coup7.setEndDate(DateUtil.dateFormat(2029, 8, 28));
 		coup7.setAmount(700);
 		coup7.setPrice(700);
 		coup7.setImage("www.compPng7.com");
@@ -206,14 +206,12 @@ public class CompanyClr implements CommandLineRunner {
 
 		ClrUtils.testSeparatedLine(" --------->>>>>>>> Going to test companyController.getAllCouponsByCategory:");
 
-		System.out.println(
-				companyController.getAllCouponsByCategory(CouponCategory.RESTAURANT, token));
+		System.out.println(companyController.getAllCouponsByCategory(CouponCategory.RESTAURANT, token));
 
 		ClrUtils.testSeparatedLine(
 				" --------->>>>>>>> Going to test *BAD REQUEST* for companyController.getAllCouponsByCategory: (company coupons from category type not found)");
 
-		System.out.println(
-				companyController.getAllCouponsByCategory(CouponCategory.ELECTRICITY, token));
+		System.out.println(companyController.getAllCouponsByCategory(CouponCategory.ELECTRICITY, token));
 
 		ClrUtils.testSeparatedLine(" --------->>>>>>>> Going to test companyController.getAllCouponsUnderMaxPrice:");
 
@@ -228,5 +226,4 @@ public class CompanyClr implements CommandLineRunner {
 
 		System.out.println(companyController.getCompanyDetails(token));
 	}
-
 }

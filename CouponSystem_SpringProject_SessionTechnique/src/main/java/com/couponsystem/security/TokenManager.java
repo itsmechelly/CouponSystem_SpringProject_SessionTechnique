@@ -29,11 +29,11 @@ public class TokenManager {
 		tokensInMemory.put(token, new CustomSession(clientService, new Date(Instant.now().toEpochMilli())));
 		return token;
 	}
-	
+
 	public ClientService getClientService(String token) {
 		return tokensInMemory.getOrDefault(token, null).getClientService();
 	}
-	
+
 	public boolean isTokenExist(String token) throws NotFoundException {
 		CustomSession customSession = tokensInMemory.get(token);
 		if (customSession != null) {
@@ -41,7 +41,7 @@ public class TokenManager {
 		}
 		throw new NotFoundException("token");
 	}
-	
+
 	public String tokenForClrTest() throws NotFoundException {
 		CustomSession customSession = tokensInMemory.get(this.token);
 		if (customSession != null) {
@@ -49,5 +49,4 @@ public class TokenManager {
 		}
 		throw new NotFoundException("token");
 	}
-
 }

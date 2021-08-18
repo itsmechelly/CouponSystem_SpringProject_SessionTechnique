@@ -38,7 +38,7 @@ public class CompanyController {
 		super();
 		this.sessionContext = sessionContext;
 	}
-	
+
 //	------------------------------------------------------------------------------------------------------------
 
 	@PostMapping("/addCompanyCoupon")
@@ -47,7 +47,9 @@ public class CompanyController {
 
 		try {
 			sessionContext.isTokenExist(token);
-			return ResponseEntity.ok(((CompanyService) sessionContext.getClientService(token, ClientType.COMPANY.toString())).addCoupon(coupon));
+			return ResponseEntity
+					.ok(((CompanyService) sessionContext.getClientService(token, ClientType.COMPANY.toString()))
+							.addCoupon(coupon));
 		} catch (LogException e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
 		} catch (AlreadyExistException e) {
@@ -64,7 +66,8 @@ public class CompanyController {
 		try {
 			sessionContext.isTokenExist(token);
 			return ResponseEntity
-					.ok(((CompanyService) sessionContext.getClientService(token, ClientType.COMPANY.toString())).updateCoupon(coupon));
+					.ok(((CompanyService) sessionContext.getClientService(token, ClientType.COMPANY.toString()))
+							.updateCoupon(coupon));
 		} catch (LogException e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
 		} catch (NotFoundException e) {
@@ -81,7 +84,8 @@ public class CompanyController {
 		try {
 			sessionContext.isTokenExist(token);
 			return ResponseEntity
-					.ok(((CompanyService) sessionContext.getClientService(token, ClientType.COMPANY.toString())).deleteCoupon(couponId));
+					.ok(((CompanyService) sessionContext.getClientService(token, ClientType.COMPANY.toString()))
+							.deleteCoupon(couponId));
 		} catch (LogException e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
 		} catch (NotFoundException e) {
@@ -94,7 +98,9 @@ public class CompanyController {
 
 		try {
 			sessionContext.isTokenExist(token);
-			return ResponseEntity.ok(((CompanyService) sessionContext.getClientService(token, ClientType.COMPANY.toString())).getAllCoupons());
+			return ResponseEntity
+					.ok(((CompanyService) sessionContext.getClientService(token, ClientType.COMPANY.toString()))
+							.getAllCoupons());
 		} catch (LogException e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
 		} catch (NotFoundException e) {
@@ -108,8 +114,9 @@ public class CompanyController {
 
 		try {
 			sessionContext.isTokenExist(token);
-			return ResponseEntity.ok(
-					((CompanyService) sessionContext.getClientService(token, ClientType.COMPANY.toString())).getAllCouponsByCategory(couponCategory));
+			return ResponseEntity
+					.ok(((CompanyService) sessionContext.getClientService(token, ClientType.COMPANY.toString()))
+							.getAllCouponsByCategory(couponCategory));
 		} catch (LogException e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
 		} catch (NotFoundException e) {
@@ -124,7 +131,8 @@ public class CompanyController {
 		try {
 			sessionContext.isTokenExist(token);
 			return ResponseEntity
-					.ok(((CompanyService) sessionContext.getClientService(token, ClientType.COMPANY.toString())).getAllCouponsUnderMaxPrice(maxPrice));
+					.ok(((CompanyService) sessionContext.getClientService(token, ClientType.COMPANY.toString()))
+							.getAllCouponsUnderMaxPrice(maxPrice));
 		} catch (LogException e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
 		} catch (NotFoundException e) {
@@ -137,12 +145,13 @@ public class CompanyController {
 
 		try {
 			sessionContext.isTokenExist(token);
-			return ResponseEntity.ok(((CompanyService) sessionContext.getClientService(token, ClientType.COMPANY.toString())).getCompanyDetails());
+			return ResponseEntity
+					.ok(((CompanyService) sessionContext.getClientService(token, ClientType.COMPANY.toString()))
+							.getCompanyDetails());
 		} catch (LogException e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
 		} catch (NotFoundException e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
 		}
 	}
-
 }

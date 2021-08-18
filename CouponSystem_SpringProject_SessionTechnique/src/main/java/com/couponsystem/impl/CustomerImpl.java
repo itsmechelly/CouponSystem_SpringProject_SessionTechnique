@@ -23,28 +23,27 @@ public class CustomerImpl {
 		this.customerRepository = customerRepository;
 		this.couponRepository = couponRepository;
 	}
-	
+
 //	------------------------------------------------------------------------------------------------------------
 
 	public Customer updateCustomer(Customer customer) {
 		return customerRepository.saveAndFlush(customer);
 	}
-	
+
 	public Customer findCustomerById(int id) {
 		return customerRepository.findCustomerById(id);
 	}
-	
+
 	public Customer findCustomerByEmailAndPassword(String email, String password) {
 		return customerRepository.findCustomerByEmailAndPassword(email, password);
 	}
 
 //	------------------------------------------------------------------------------------------------------------
 
-	
 	public Coupon findCouponById(int id) {
 		return couponRepository.findById(id);
 	}
-	
+
 	public List<Coupon> getCouponsByCustomersId(int id) {
 		return couponRepository.getCouponsByCustomersId(id);
 	}
@@ -60,5 +59,4 @@ public class CustomerImpl {
 	public boolean couponExistsByCustomersIdAndTitle(int id, String title) {
 		return couponRepository.existsByCustomersIdAndTitle(id, title);
 	}
-	
 }

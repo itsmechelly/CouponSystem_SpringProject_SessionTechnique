@@ -51,7 +51,7 @@ public class CompanyService extends ClientService {
 
 		if (companyImpl.couponExistsByCompanyIdAndTitle(this.companyId, coupon.getTitle()))
 			throw new AlreadyExistException("Company title ", coupon.getTitle());
-		
+
 		coupon.setCompanyId(this.companyId);
 		companyImpl.addCoupon(coupon);
 		return coupon;
@@ -60,7 +60,8 @@ public class CompanyService extends ClientService {
 	public Coupon updateCoupon(Coupon coupon)
 			throws LogException, NotFoundException, NotAllowedException, AlreadyExistException {
 
-		Optional<Coupon> coupFromDb1 = Optional.of(companyImpl.findCouponByCompanyIdAndTitle(this.companyId, coupon.getTitle()));
+		Optional<Coupon> coupFromDb1 = Optional
+				.of(companyImpl.findCouponByCompanyIdAndTitle(this.companyId, coupon.getTitle()));
 		Optional<Coupon> coupFromDb2 = Optional.of(companyImpl.findCouponById(coupon.getId()));
 
 		if (coupon.getId() != coupFromDb1.get().getId())
@@ -69,7 +70,7 @@ public class CompanyService extends ClientService {
 			throw new NotAllowedException("company id number", this.companyId);
 		if (companyImpl.couponExistsByTitleAndIdNot(coupon.getTitle(), coupon.getId()))
 			throw new AlreadyExistException("Company title ", coupon.getTitle());
-		
+
 		companyImpl.updateCoupon(coupon);
 		return coupon;
 	}
@@ -78,7 +79,7 @@ public class CompanyService extends ClientService {
 
 		if (!companyImpl.couponExistsById(id))
 			throw new NotFoundException("coupons details.");
-		
+
 		companyImpl.deleteCoupon(id);
 		return "Coupon with id number " + id + " deleted successfully.";
 	}
@@ -89,7 +90,7 @@ public class CompanyService extends ClientService {
 
 		if (coupFromDb.isEmpty())
 			throw new NotFoundException("coupons details.");
-		
+
 		return coupFromDb;
 	}
 
@@ -99,7 +100,7 @@ public class CompanyService extends ClientService {
 
 		if (coupFromDb.isEmpty())
 			throw new NotFoundException("coupons from category type " + category + ".");
-		
+
 		return coupFromDb;
 	}
 
@@ -109,7 +110,7 @@ public class CompanyService extends ClientService {
 
 		if (coupFromDb.isEmpty())
 			throw new NotFoundException("coupons under price ", maxPrice);
-		
+
 		return coupFromDb;
 	}
 
@@ -119,8 +120,7 @@ public class CompanyService extends ClientService {
 
 		if (companyFromDb.isEmpty())
 			throw new NotFoundException("company details.");
-		
+
 		return companyImpl.findCompanyById(this.companyId);
 	}
-
 }

@@ -20,11 +20,11 @@ import lombok.Setter;
 @Service
 @Scope("prototype")
 @Setter
-public class CustomerService extends ClientService{
+public class CustomerService extends ClientService {
 
 	public int customerId;
 	private final CustomerImpl customerImpl;
-	
+
 	private CustomerService(CustomerImpl customerImpl) {
 		super();
 		this.customerImpl = customerImpl;
@@ -45,20 +45,21 @@ public class CustomerService extends ClientService{
 		return cForCustomerId.getId();
 	}
 //	------------------------------------------------------------------------------------------------------------
-	
+
 	public Coupon purchaseCoupon(Coupon coupon) throws PurchaseCouponException, LogException, NotFoundException {
 
 		Coupon coupFromDb = customerImpl.findCouponById(coupon.getId());
 		Customer custFromDb = customerImpl.findCustomerById(this.customerId);
 		List<Coupon> coupListFromDb = customerImpl.getCouponsByCustomersId(this.customerId);
-		
-		if (customerImpl.couponExistsByCustomersIdAndTitle(this.customerId, coupon.getTitle())) 
-			throw new PurchaseCouponException("Purchasing this type of coupon is limited to one use only. you are welcome to choose another coupon.");
+
+		if (customerImpl.couponExistsByCustomersIdAndTitle(this.customerId, coupon.getTitle()))
+			throw new PurchaseCouponException(
+					"Purchasing this type of coupon is limited to one use only. you are welcome to choose another coupon.");
 		if (coupFromDb.getAmount() < 1)
 			throw new PurchaseCouponException("Coupon out of stock, you are welcome to choose another coupon.");
 		if (coupFromDb.getEndDate().before(java.sql.Date.valueOf(LocalDate.now())))
 			throw new PurchaseCouponException("This coupon has expired, you are welcome to choose another coupon.");
-		
+
 		coupFromDb.setAmount(coupon.getAmount() - 1);
 		coupListFromDb.add(coupFromDb);
 		custFromDb.setCoupons(coupListFromDb);
@@ -66,14 +67,14 @@ public class CustomerService extends ClientService{
 
 		return coupFromDb;
 	}
-	
+
 	public List<Coupon> getAllCoupons() throws NotFoundException, LogException {
 
 		List<Coupon> customerFromDb = customerImpl.getCouponsByCustomersId(this.customerId);
 
 		if (customerFromDb.isEmpty())
 			throw new NotFoundException("coupons details.");
-		
+
 		return customerFromDb;
 	}
 
@@ -83,7 +84,7 @@ public class CustomerService extends ClientService{
 
 		if (coupFromDb.isEmpty())
 			throw new NotFoundException("coupons from category type " + category + ".");
-		
+
 		return coupFromDb;
 	}
 
@@ -93,7 +94,7 @@ public class CustomerService extends ClientService{
 
 		if (coupFromDb.isEmpty())
 			throw new NotFoundException("coupons under price ", maxPrice);
-		
+
 		return coupFromDb;
 	}
 
@@ -103,8 +104,7 @@ public class CustomerService extends ClientService{
 
 		if (customerFromDb.isEmpty())
 			throw new NotFoundException("customer details.");
-		
+
 		return customerImpl.findCustomerById(this.customerId);
 	}
-
 }

@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class CouponSystemSpringProjectApplication {
 
 	public static void main(String[] args) {
-		
 		SpringApplication.run(CouponSystemSpringProjectApplication.class, args);
 	}
 }

@@ -1,4 +1,5 @@
 # CouponSystem_SpringProject_SessionTechnique
+![login-in-detils - Copy](https://user-images.githubusercontent.com/60425986/230067218-5d875a76-ef3a-4e29-9c01-246f45f72412.png)
 
 This application is the final project I created during my software studies.<br/>
 The application is a Fullstack project, it is written in Java language on the server side and in React on the client side.

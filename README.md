@@ -94,7 +94,8 @@ This is how it looks in macro view:<br/><br/>
 
 <br/>
 Diagram of login class in details:<br/><br/>
-![image](https://user-images.githubusercontent.com/60425986/230065201-8854a0d4-f18d-4101-bb97-729fd9e91426.png)
+![login-in-detils](https://user-images.githubusercontent.com/60425986/230066449-7cbe20e0-5d7a-4973-9e5a-5c5d9b607e8c.png)
+
 
 ## Now, when the user is logged in – other controllers can be in use:
 According to the client type, and after the client's first request has been made - the login, and after the client has a token that is activated behind the scenes - now, with every request the client sends - the relevant controller will be activated (as mentioned, the token and the client type are stored in the HttpHeader).<br/>
@@ -123,30 +124,49 @@ In addition to the Java exceptions, I created system-specific exceptions:<br/><b
 
 ## Admin Controller:
 http://localhost:8080/admin/addCompany 
+<br/>
 http://localhost:8080/admin/updateCompany 
+<br/>
 http://localhost:8080/admin/deleteCompany/{companyId} 
+<br/>
 http://localhost:8080/admin/getOneCompanyById/{companyId} 
+<br/>
 http://localhost:8080/admin/getAllCompanies 
+<br/>
 http://localhost:8080/admin/addCustomer 
+<br/>
 http://localhost:8080/admin/updateCustomer 
+<br/>
 http://localhost:8080/admin/deleteCustomer/{customerId} 
+<br/>
 http://localhost:8080/admin/getOneCustomerById/{customerId} 
+<br/>
 http://localhost:8080/admin/getAllCustomers 
 
 ## Company Controller:
 http://localhost:8080/company/addCompanyCoupon 
+<br/>
 http://localhost:8080/company/updateCompanyCoupon 
+<br/>
 http://localhost:8080/company/deleteCompanyCoupon 
+<br/>
 http://localhost:8080/company/getAllCompaniesCoupons 
+<br/>
 http://localhost:8080/company/getAllCouponsByCategory/{couponCategory} 
+<br/>
 http://localhost:8080/company/getAllCouponsUnderMaxPrice 
+<br/>
 http://localhost:8080/company/getCompanyDetails 
 
 ## Customer Controller:
 http://localhost:8080/customer/purchaseCoupon 
+<br/>
 http://localhost:8080/customer/getAllCustomerCoupons 
+<br/>
 http://localhost:8080/customer/getAllCouponsByCategory/{couponCategory} 
+<br/>
 http://localhost:8080/customer/getAllCouponsUnderMaxPrice 
+<br/>
 http://localhost:8080/customer/getCustomerDetails 
 
 # ⚒️ Tech Stack

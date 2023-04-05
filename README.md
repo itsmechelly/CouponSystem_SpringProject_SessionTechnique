@@ -94,7 +94,8 @@ This is how it looks in macro view:<br/><br/>
 
 <br/>
 Diagram of login class in details:<br/><br/>
-![login-in-detils](https://user-images.githubusercontent.com/60425986/230066449-7cbe20e0-5d7a-4973-9e5a-5c5d9b607e8c.png)
+
+![login-in-detils](https://user-images.githubusercontent.com/60425986/230066920-b4370418-f33d-4710-8644-42649a1f092d.png)
 
 
 ## Now, when the user is logged in – other controllers can be in use:

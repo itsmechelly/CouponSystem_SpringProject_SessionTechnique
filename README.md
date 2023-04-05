@@ -38,7 +38,7 @@ For the database I used:<br/>
 
 For the authentication & authorization I used the Sessions technique.<br/><br/>
 
-👉 The current repo represent this 1st project.<br/>
+👉 The current repo represent this 2nd project.<br/>
 https://github.com/itsmechelly/CouponSystem_SpringProject_SessionTechnique 
 
 ## 3️⃣ The 3ed Project: Spring Framework and JWT Technique for Authentication & Authorization

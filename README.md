@@ -1,5 +1,4 @@
 # CouponSystem_SpringProject_SessionTechnique
-![login-in-detils](https://user-images.githubusercontent.com/60425986/230067272-ebd1dfbe-9aad-4bf1-a62d-09a9bc9af146.png)
 
 This application is the final project I created during my software studies.<br/>
 The application is a Fullstack project, it is written in Java language on the server side and in React on the client side.
@@ -95,7 +94,12 @@ This is how it looks in macro view:<br/><br/>
 
 <br/>
 Diagram of login class in details:<br/><br/>
-![login-in-detils](https://user-images.githubusercontent.com/60425986/230067272-ebd1dfbe-9aad-4bf1-a62d-09a9bc9af146.png)
+
+
+![image](https://user-images.githubusercontent.com/60425986/230067778-9bca18c3-4efb-46ad-8d80-16453f75f2ff.png)
+
+
+
 
 ## Now, when the user is logged in – other controllers can be in use:
 According to the client type, and after the client's first request has been made - the login, and after the client has a token that is activated behind the scenes - now, with every request the client sends - the relevant controller will be activated (as mentioned, the token and the client type are stored in the HttpHeader).<br/>

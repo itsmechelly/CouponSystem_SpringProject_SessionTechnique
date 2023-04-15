@@ -62,7 +62,7 @@ Customer: ➡️ e-mail: cust1@cust.com password: 1111<br/>
 This part of the application was written using React libraries and is built as a Single Page Application (SPA).<br/>
 The communication between server side and client side was done using Json and RESTful API.<br/><br/>
 Click here to see this project on Github:<br/>
-https://github.com/itsmechelly/CouponSystem_ReactProject<br/><br/>
+https://github.com/itsmechelly/coupon-system-client<br/><br/>
 👉 NOTE: this project is the final version and deployed to AWS cloud, click to browse the website:<br/>
 LINK WILL BE ADDED SOON
 <br/><br/>

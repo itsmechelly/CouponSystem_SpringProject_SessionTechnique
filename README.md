@@ -51,7 +51,7 @@ For the authentication & authorization I used the JTW technique.<br/><br/>
 Click here to see this project on Github:<br/>
 https://github.com/itsmechelly/coupon-system-server<br/><br/>
 👉 NOTE: this project is the final version and deployed to AWS cloud, click to browse the website:<br/>
-LINK WILL BE ADDED SOON
+[CLICK HERE TO SEE THE WEBSITE!](http://coupon-express.s3-website-us-east-1.amazonaws.com/layout)
 <br/><br/>
 👉 To login, use those details:<br/>
 Admin: ➡️ e-mail: admin@admin.com password: admin<br/>
@@ -64,7 +64,7 @@ The communication between server side and client side was done using Json and RE
 Click here to see this project on Github:<br/>
 https://github.com/itsmechelly/coupon-system-client<br/><br/>
 👉 NOTE: this project is the final version and deployed to AWS cloud, click to browse the website:<br/>
-LINK WILL BE ADDED SOON
+[CLICK HERE TO SEE THE WEBSITE!](http://coupon-express.s3-website-us-east-1.amazonaws.com/layout)
 <br/><br/>
 👉 To login, use those details:<br/>
 Admin: ➡️ e-mail: admin@admin.com password: admin<br/>
